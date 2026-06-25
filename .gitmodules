@@ -1,0 +1,12 @@
+[submodule "config/nvim"]
+	path = config/nvim
+	url = https://github.com/lightmon233/nvim.git
+[submodule "config/dwm"]
+	path = config/dwm
+	url = https://github.com/lightmon233/dwm.git
+[submodule "config/dmenu"]
+	path = config/dmenu
+	url = https://github.com/lightmon233/dmenu.git
+[submodule "config/st"]
+	path = config/st
+	url = https://github.com/lightmon233/st.git
