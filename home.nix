@@ -15,6 +15,7 @@ in
       ./modules/suckless.nix
       ./modules/wallpaper.nix
       ./modules/statusbar.nix
+      ./modules/notification.nix
     ];
 
   home.username = "light";

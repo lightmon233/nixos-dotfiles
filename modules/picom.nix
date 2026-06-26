@@ -13,15 +13,15 @@
       # method = "dual_kawase";
       # strength = 6;
     };
-    fading = true;
+    fading = false;
     fade-delta = 4;
     fade-in-step = 0.03;
     fade-out-step = 0.03;
     focus-exclude = [
-      "class_g = 'dmenu'"
+      # "class_g = 'dmenu'"
     ];
     blur-background-exclude = [
-      "window_type = 'dock'"
+      # "window_type = 'dock'"
       "window_type = 'desktop'"
     ];
     # corner-radius = 8.0;
