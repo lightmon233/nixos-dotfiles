@@ -6,6 +6,10 @@
     backend = "glx";
     active-opacity = 1.0;
     inactive-opacity = 0.9;
+    opacity-rule = [
+      "75:class_g = 'dwm'"
+      "75:class_g = 'dmenu'"
+    ];
     blur = {
       method = "gaussian";
       size = 15;

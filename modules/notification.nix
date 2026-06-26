@@ -1,17 +1,17 @@
 { pkgs, config, ... }:
 
 {
+  home.packages = [ pkgs.libnotify ];
   services.dunst = {
     enable = true;
     settings = {
       global = {
-        monito = 0;
+        monitor = 0;
         follow = "mouse";
-        width = 300;
-        height = 300;
-        oigin = "top-right";
-        offset = "10x50";
-        transparency = 10;
+        height = "(50, 100)";
+        origin = "top-right";
+        offset = "(6, 30)";
+        transparency = 8;
         frame_color = "#81a2be";
         font = "JetBrainsMono Nerd Font 10";
       };
