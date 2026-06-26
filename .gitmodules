@@ -10,3 +10,6 @@
 [submodule "config/st"]
 	path = config/st
 	url = https://github.com/lightmon233/st.git
+[submodule "config/dwmblocks"]
+	path = config/dwmblocks
+	url = https://github.com/lightmon233/dwmblocks.git
