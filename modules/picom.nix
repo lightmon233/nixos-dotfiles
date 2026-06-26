@@ -27,7 +27,10 @@
     blur-background-exclude = [
       "window_type = 'dock'"
       "window_type = 'desktop'"
-      "class_g" = "dwm"
+      "class_g = 'dwm'"
+    ];
+    shadow-exclude = [
+      "class_g = 'dwm'"
     ];
     # corner-radius = 8.0;
     # round-borders = 1;
