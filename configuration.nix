@@ -33,9 +33,15 @@
     };
   };
   services.xserver = {
-      enable = true;
-      autoRepeatDelay = 200;
-      autoRepeatInterval = 35;
+    enable = true;
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 35;
+  };
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      naturalScrolling = true;
+    };
   };
   services.displayManager.ly.enable = true;
 
