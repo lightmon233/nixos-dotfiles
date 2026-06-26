@@ -6,6 +6,7 @@
             url = "github:nix-community/home-manager/release-26.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        self.submodules = true;
     };
 
     outputs = { self, nixpkgs, home-manager, ... }: {
