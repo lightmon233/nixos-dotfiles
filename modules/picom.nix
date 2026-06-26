@@ -7,7 +7,7 @@
     active-opacity = 1.0;
     inactive-opacity = 0.9;
     opacity-rule = [
-      "75:class_g = 'dwm'"
+      "100:class_g = 'dwm'"
       "75:class_g = 'dmenu'"
     ];
     blur = {
@@ -22,11 +22,12 @@
     fade-in-step = 0.03;
     fade-out-step = 0.03;
     focus-exclude = [
-      # "class_g = 'dmenu'"
+      "class_g = 'dmenu'"
     ];
     blur-background-exclude = [
-      # "window_type = 'dock'"
+      "window_type = 'dock'"
       "window_type = 'desktop'"
+      "class_g" = "dwm"
     ];
     # corner-radius = 8.0;
     # round-borders = 1;
