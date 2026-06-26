@@ -7,11 +7,11 @@
     active-opacity = 1.0;
     inactive-opacity = 0.9;
     blur = {
-      # method = "gaussian";
-      # size = 20;
-      # deviation = 10.0;
-      method = "dual_kawase";
-      strength = 6;
+      method = "gaussian";
+      size = 15;
+      deviation = 8.0;
+      # method = "dual_kawase";
+      # strength = 6;
     };
     fading = true;
     fade-delta = 4;
