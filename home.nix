@@ -14,7 +14,6 @@ in
     [
       ./modules/suckless.nix
       ./modules/wallpaper.nix
-      ./modules/picom.nix
     ];
 
   home.username = "light";

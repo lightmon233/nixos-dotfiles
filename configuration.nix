@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/vim.nix
+      ./modules/picom.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -49,7 +50,6 @@
       enable = true;
       autoRepeatDelay = 200;
       autoRepeatInterval = 35;
-      windowManager.qtile.enable = true;
   };
   services.displayManager.ly.enable = true;
 
