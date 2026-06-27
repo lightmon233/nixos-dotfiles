@@ -2,6 +2,5 @@
 
 {
   xsession.initExtra = ''
-    dwmblocks &
   '';
 }
