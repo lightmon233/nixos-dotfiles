@@ -61,10 +61,9 @@ in
   }) 
   configs;
 
-  # xdg.configFile."nvim" = {
-  #   source = create_symlink "${dotfiles}/nvim/";  
-  #   recursive = true;
-  # };
+  xsession.initExtra = ''
+    fcitx5 -d &
+  '';
 
   home.packages = with pkgs; [
     fastfetch # for fetching system specs

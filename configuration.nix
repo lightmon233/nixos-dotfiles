@@ -40,7 +40,7 @@
   services.libinput = {
     enable = true;
     touchpad = {
-      naturalScrolling = true;
+    naturalScrolling = true;
     };
   };
   services.displayManager.ly.enable = true;
@@ -58,6 +58,25 @@
 
   users.users.light = {
     shell = pkgs.zsh;
+  };
+
+  # set up input method
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocales = [
+    "zh_CN.UTF-8/UTF-8"
+    # "ja_JP.UTF-8/UTF-8"
+  ];
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      addons = with pkgs; [
+        qt6Packages.fcitx5-chinese-addons
+        fcitx5-rime
+        fcitx5-mozc
+        fcitx5-material-color
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
