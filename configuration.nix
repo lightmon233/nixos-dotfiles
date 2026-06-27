@@ -56,6 +56,19 @@
   programs.firefox.enable = true;
   programs.zsh.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+      glibc
+      util-linux
+      openssl
+      icu
+      curl
+    ];
+  };
+
   users.users.light = {
     shell = pkgs.zsh;
   };

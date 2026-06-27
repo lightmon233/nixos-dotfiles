@@ -20,6 +20,7 @@ in
 
   home.username = "light";
   home.homeDirectory = "/home/light";
+
   programs.git = {
     enable = true;
     settings.user = {
