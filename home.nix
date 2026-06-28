@@ -5,6 +5,7 @@ let
   configs = {
     nvim = "nvim";
     alacritty = "alacritty";
+    wal = "wal";
   };
 in
 
@@ -53,6 +54,7 @@ in
 
     initContent = ''
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      (cat ~/.cache/wal/sequences &)
     '';
   };
 

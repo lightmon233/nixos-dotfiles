@@ -99,6 +99,7 @@
     alacritty
     brightnessctl # for screen brightness
     pamixer # for volume control
+    xdotool
   ];
 
   environment.etc = {
