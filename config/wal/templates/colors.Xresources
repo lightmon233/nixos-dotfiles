@@ -3,5 +3,5 @@ dwm.normbgcolor:       {background}
 dwm.normfgcolor:       {foreground}
 
 dwm.selbordercolor:    {color1}
-dwm.selbgcolor:        {background}
+dwm.selbgcolor:        {color2}
 dwm.selfgcolor:        {foreground}
