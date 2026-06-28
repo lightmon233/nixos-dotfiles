@@ -80,5 +80,8 @@ in
     xclip
     dunst
     zsh-powerlevel10k
+    imagemagick
+    ranger
+    pywal16
   ];
 }
