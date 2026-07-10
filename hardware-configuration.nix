@@ -8,27 +8,26 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/179a5052-4458-4576-ae79-ea4c13dc98ed";
+    { device = "/dev/disk/by-uuid/2bb03a8d-010a-49cb-996e-7e6d22fc77e0";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/922C-FCAA";
+    { device = "/dev/disk/by-uuid/D9C8-3E3F";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/e638d1c7-db45-42a8-9917-b294f11d87e5"; }
+    [ { device = "/dev/disk/by-uuid/70bd50ee-726a-40e7-a8c1-f626d4f26213"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.acpilight.enable = true; # skip brightnessctl authentication prompts
 }
