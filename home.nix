@@ -85,5 +85,6 @@ in
     imagemagick
     ranger
     pywal16
+    btop
   ];
 }
