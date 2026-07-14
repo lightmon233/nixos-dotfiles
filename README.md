@@ -43,3 +43,7 @@ reboot
 ## Preview
 
 ![preview](static/imgs/preview.png)
+
+## To-DO List
+
+- [ ] Fix synchronous issue with Mod+Shift+N wallpaper changing hotkey.
