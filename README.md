@@ -21,11 +21,6 @@ git clone https://github.com/lightmon233/nixos-dotfiles.git
 
 ### Copy your own hardware-specified config file
 
-`hardware-configuration.nix` under main branch is used for Thinkpad X250 with my own drive, you should replace this file with your dedicated configuration.
-
-> [!NOTE]
-> Config under main branch is for Thinkpad X250 which has a 12.5 inch display with a resolution of 1366x768.
-
 ```bash
 sudo cp /etc/nixos/hardware-configuration.nix ~/nixos-dotfiles/ # assume you've placed that repo under your home directory, same as below.
 ```
