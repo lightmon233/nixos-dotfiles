@@ -64,7 +64,7 @@ in
       lua-language-server
       clang-tools
       bash-language-server
-      vts-ls
+      typescript-language-server
       stylua
       shellcheck
     ];
