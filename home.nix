@@ -58,18 +58,6 @@ in
     '';
   };
 
-  programs.neovim = {
-    enable = true;
-    extraPackages = with pkgs; [
-      lua-language-server
-      clang-tools
-      bash-language-server
-      typescript-language-server
-      stylua
-      shellcheck
-    ];
-  };
-
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
@@ -89,6 +77,13 @@ in
     gcc # for compiling some of the neovim tree-sitter
     unzip # for some of the neovim mason-lsp building process
     tree-sitter # for neovim tree-sitter
+    neovim
+    lua-language-server
+    clang-tools
+    bash-language-server
+    typescript-language-server
+    stylua
+    shellcheck
     scrot
     xclip
     dunst
