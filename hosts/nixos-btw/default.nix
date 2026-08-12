@@ -122,6 +122,7 @@
     pyprland
     rofi
     wlogout
+    psmisc # for killall command
   ];
 
   services.pipewire = {
