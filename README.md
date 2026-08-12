@@ -2,7 +2,7 @@
 
 **Here we go again!**
 
-Here lies my NixOS plus dwm desktop setup config file, check'em out and pick your favourites!
+Here lies my NixOS plus dwm(now with hyprland added) desktop setup config file, check'em out and pick your favourites!
 
 ## Start
 
@@ -39,8 +39,31 @@ sudo cp /etc/nixos/hardware-configuration.nix ~/nixos-dotfiles/<your-hostname>/h
 sudo nixos-generate-config --show-hardware-config > hosts/<your-hostname>/hardware-configuration.nix
 ```
 
+### Add your hostname config to the flake
+
+```nix
+nixos-btw = nixpkgs.lib.nixosSystem {
+  system = "x86_64-linux";
+  modules = [
+      ./hosts/nixos-btw
+      home-manager.nixosModules.home-manager
+      {
+          home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.light = import ./home.nix;
+              backupFileExtension = "backup";
+          };
+      }
+  ];
+};
+```
+
+Copy and paste the code above according to the original structure in `flake.nix`, and rename `nixos-btw` to your own hostname.
+
 ### Add new config to the git repository
 
+Under repo's root path:
 ```bash
 git add .
 # git commit # if you want to commit it
@@ -61,7 +84,12 @@ reboot
 
 ## Preview
 
-![preview](static/imgs/preview.png)
+### DWM
+
+![dwm](static/imgs/dwm.png)
+
+### Hyprland
+![hyprland](static/imgs/hyprland.png)
 
 ## To-DO List
 

@@ -98,5 +98,6 @@ in
     ranger
     pywal16
     btop
+    cava
   ];
 }
