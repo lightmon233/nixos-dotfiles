@@ -6,6 +6,12 @@ let
     nvim = "nvim";
     alacritty = "alacritty";
     wal = "wal";
+    hypr = "hypr";
+    pypr = "pypr";
+    waybar = "waybar";
+    rofi = "rofi";
+    kitty = "kitty";
+    wlogout = "wlogout";
   };
 in
 

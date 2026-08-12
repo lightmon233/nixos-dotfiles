@@ -66,3 +66,4 @@ reboot
 ## To-DO List
 
 - [ ] Fix synchronous issue with Mod+Shift+N wallpaper changing hotkey.
+- [ ] Remove `configuration.nix` under root path cause it's not used any more.

@@ -43,7 +43,18 @@
     naturalScrolling = true;
     };
   };
+
   services.displayManager.ly.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    # withUWSM = true; # 可提供更好的systemd集成
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # 让electron/chromium优先用wayland
+  };
 
   users.users.light = {
     isNormalUser = true;
@@ -100,7 +111,24 @@
     brightnessctl # for screen brightness
     pamixer # for volume control
     xdotool
+    kitty
+    waybar
+    rofi
+    swaybg
+    grim
+    slurp
+    wl-clipboard
+    thunar
+    pyprland
+    rofi
+    wlogout
   ];
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
 
   environment.etc = {
     "tmux.conf".source = ../../.tmux.conf;
