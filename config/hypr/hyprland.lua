@@ -138,7 +138,7 @@ hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-")
 
 hl.bind(main_mod .. " + P", hl.dsp.exec_cmd('grim -g "$(slurp)"'))
 hl.bind(main_mod .. " + SHIFT + P", hl.dsp.exec_cmd("grim"))
-hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("killall swaybg; swaybg -i $(find ~/Wallpapers -type f | shuf -n 1) -m fill"))
+hl.bind(main_mod .. " + N", hl.dsp.exec_cmd("killall swaybg; swaybg -i $(find ~/Wallpapers -type f | shuf -n 1) -m fill"))
 hl.bind(main_mod .. " + A", hl.dsp.exec_cmd("pypr toggle term"))
 local dropterm = "^(kitty-dropterm)$"
 hl.window_rule({
