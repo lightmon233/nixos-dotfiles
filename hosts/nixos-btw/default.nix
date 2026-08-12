@@ -29,7 +29,7 @@
   services.xserver.windowManager.dwm = {
     enable = true;
     package = pkgs.dwm.overrideAttrs {
-      src = ./config/dwm;
+      src = ../../config/dwm;
     };
   };
   services.xserver = {
@@ -103,7 +103,7 @@
   ];
 
   environment.etc = {
-    "tmux.conf".source = ./.tmux.conf;
+    "tmux.conf".source = ../../.tmux.conf;
   };
 
   fonts.packages = with pkgs; [
