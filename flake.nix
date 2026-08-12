@@ -10,20 +10,22 @@
     };
 
     outputs = { self, nixpkgs, home-manager, ... }: {
-        nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-                ./configuration.nix
-                home-manager.nixosModules.home-manager
-                {
-                    home-manager = {
-                        useGlobalPkgs = true;
-                        useUserPackages = true;
-                        users.light = import ./home.nix;
-                        backupFileExtension = "backup";
-                    };
-                }
-            ];
+        nixosConfigurations = {
+          nixos-btw = nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = [
+                  ./hosts/nixos-btw
+                  home-manager.nixosModules.home-manager
+                  {
+                      home-manager = {
+                          useGlobalPkgs = true;
+                          useUserPackages = true;
+                          users.light = import ./home.nix;
+                          backupFileExtension = "backup";
+                      };
+                  }
+              ];
+          };
         };
     };
 }

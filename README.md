@@ -17,18 +17,39 @@ After installed NixOS:
 
 ```bash
 git clone https://github.com/lightmon233/nixos-dotfiles.git
+# copied to home directory for example.
+cd ~/nixos-dotfiles
+
+```
+
+### Copy the default configuration
+
+```bash
+# make a folder under `hosts/`, with its name being your hostname
+mkdir hosts/<your-hostname>
+# copy the `default.nix` file
+cp hosts/nixos-btw/default.nix hosts/<your-hostname>/default.nix
 ```
 
 ### Copy your own hardware-specified config file
 
 ```bash
-sudo cp /etc/nixos/hardware-configuration.nix ~/nixos-dotfiles/ # assume you've placed that repo under your home directory, same as below.
+sudo cp /etc/nixos/hardware-configuration.nix ~/nixos-dotfiles/<your-hostname>/hardware-configuration.nix # assume you've placed that repo under your home directory, same as below.
+# or generate one if you don't have
+sudo nixos-generate-config --show-hardware-config > hosts/<your-hostname>/hardware-configuration.nix
+```
+
+### Add new config to the git repository
+
+```bash
+git add .
+# git commit # if you want to commit it
 ```
 
 ### Rebuild your configuration
 
 ```bash
-sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw
+sudo nixos-rebuild switch --flake ~/nixos-dotfiles#<your-hostname>
 # change nixos-btw to your machine's hostname.
 ```
 
