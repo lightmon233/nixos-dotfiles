@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # 1. 延迟 0.5 秒启动，避开开机时 Hyprland 刚初始化的真空期
 sleep 0.5
