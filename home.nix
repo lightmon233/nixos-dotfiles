@@ -12,6 +12,7 @@ let
     rofi = "rofi";
     kitty = "kitty";
     wlogout = "wlogout";
+    i3 = "i3";
   };
 in
 
@@ -23,6 +24,7 @@ in
       ./modules/wallpaper.nix
       ./modules/statusbar.nix
       ./modules/notification.nix
+      ./modules/picom.nix
     ];
 
   home.username = "light";
@@ -69,10 +71,6 @@ in
     recursive = true;
   }) 
   configs;
-
-  xsession.initExtra = ''
-    fcitx5 -d &
-  '';
 
   home.packages = with pkgs; [
     fastfetch # for fetching system specs

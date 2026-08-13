@@ -16,4 +16,10 @@
     }))
     slock
   ];
+
+  xsession.initExtra = ''
+    if [ "$XDG_CURRENT_DESKTOP" = "dwm" ] || [ "$XDG_CURRENT_DESKTOP" = "none+dwm" ]; then
+      fcitx5 &
+    fi
+  '';
 }

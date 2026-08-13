@@ -5,7 +5,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/vim.nix
-      ../../modules/picom.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -31,6 +30,13 @@
     package = pkgs.dwm.overrideAttrs {
       src = ../../config/dwm;
     };
+  };
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      i3status
+      i3lock
+    ];
   };
   services.xserver = {
     enable = true;
