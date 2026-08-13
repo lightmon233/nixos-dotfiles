@@ -17,22 +17,14 @@ in
   home.packages = with pkgs; [
     polybar
     calc
-    terminus_font_ttf
-    icomoon-feather
-    material-icons
-    nerd-fonts.iosevka
-    siji
   ];
+  home.file.".local/share/fonts".source = ../fonts;
+
   xdg.configFile."polybar" = {
     source = "${polybar-themes-src}/simple";
     recursive = true;
     onChange = ''
       chmod +x $HOME/.config/polybar/launch.sh
-      chmod +x $HOME/.config/polybar/hack/launch.sh
-      chmod +x $HOME/.config/polybar/hack/preview.sh
-      chmod +x $HOME/.config/polybar/hack/scripts/checkupdates
-      chmod +x $HOME/.config/polybar/hack/scripts/check-network
-      chmod +x $HOME/.config/polybar/hack/scripts/*.sh
     '';
   };
 }
