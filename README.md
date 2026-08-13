@@ -91,6 +91,9 @@ reboot
 ### Hyprland
 ![hyprland](static/imgs/hyprland.png)
 
+### I3
+![i3wm](static/imgs/i3wm.png)
+
 ## To-DO List
 
 - [ ] Fix synchronous issue with Mod+Shift+N wallpaper changing hotkey.
