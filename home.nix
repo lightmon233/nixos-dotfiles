@@ -99,5 +99,6 @@ in
     cava
     google-chrome
     spotify
+    tldr
   ];
 }
