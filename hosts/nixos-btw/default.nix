@@ -22,6 +22,11 @@
     userControlled = true;
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
@@ -51,6 +56,8 @@
   };
 
   services.displayManager.ly.enable = true;
+
+  services.blueman.enable = true;
 
   programs.hyprland = {
     enable = true;
