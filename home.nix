@@ -97,5 +97,6 @@ in
     pywal16
     btop
     cava
+    google-chrome
   ];
 }
