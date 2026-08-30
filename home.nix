@@ -98,5 +98,6 @@ in
     btop
     cava
     google-chrome
+    spotify
   ];
 }
