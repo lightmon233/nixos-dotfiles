@@ -65,6 +65,10 @@
     # withUWSM = true; # 可提供更好的systemd集成
   };
 
+  programs.steam = {
+    enable = true;
+  };
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # 让electron/chromium优先用wayland
   };
