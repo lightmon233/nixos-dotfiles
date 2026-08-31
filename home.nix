@@ -100,5 +100,6 @@ in
     google-chrome
     spotify
     tldr
+    steam
   ];
 }
