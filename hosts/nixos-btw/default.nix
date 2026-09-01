@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, waybar, ... }:
 
 {
   imports =
@@ -131,7 +131,6 @@
     pamixer # for volume control
     xdotool
     kitty
-    waybar
     rofi
     swaybg
     grim
@@ -142,6 +141,7 @@
     rofi
     wlogout
     psmisc # for killall command
+    waybar.packages.${pkgs.stdenv.hostPlatform.system}.waybar
   ];
 
   services.pipewire = {

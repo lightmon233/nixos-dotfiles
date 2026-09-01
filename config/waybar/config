@@ -91,7 +91,7 @@
         "scroll-step": 1
     },
     "custom/logo": {
-        "format": "  ",
+        "format": "  ",
         "tooltip": false,
         "on-click": "rofi -modi drun,run -show drun"
     },
