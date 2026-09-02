@@ -67,6 +67,7 @@
 
   programs.steam = {
     enable = true;
+    protontricks.enable = true;
   };
 
   environment.sessionVariables = {
