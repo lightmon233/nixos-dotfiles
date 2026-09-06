@@ -143,6 +143,11 @@
     wlogout
     psmisc # for killall command
     waybar.packages.${pkgs.stdenv.hostPlatform.system}.waybar
+    kdePackages.qtsvg
+    kdePackages.kio # needed since 25.11
+    kdePackages.kio-fuse #to mount remote filesystems via FUSE
+    kdePackages.kio-extras #extra protocols support (sftp, fish and more)
+    kdePackages.dolphin # This is the actual dolphin package
   ];
 
   services.pipewire = {
@@ -154,6 +159,8 @@
   environment.etc = {
     "tmux.conf".source = ../../.tmux.conf;
   };
+
+  environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
