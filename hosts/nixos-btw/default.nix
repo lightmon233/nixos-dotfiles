@@ -10,6 +10,9 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
+
+  services.udisks2.enable = true; # This enables dolphin to see inserted usb disks
 
   networking.hostName = "nixos-btw"; # Define your hostname.
 
@@ -148,6 +151,7 @@
     kdePackages.kio-fuse #to mount remote filesystems via FUSE
     kdePackages.kio-extras #extra protocols support (sftp, fish and more)
     kdePackages.dolphin # This is the actual dolphin package
+    ntfs3g
   ];
 
   services.pipewire = {
