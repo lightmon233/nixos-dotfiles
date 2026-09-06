@@ -101,5 +101,6 @@ in
     spotify
     tldr
     telegram-desktop
+    nwjs
   ];
 }
