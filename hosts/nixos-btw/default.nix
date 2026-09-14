@@ -25,6 +25,11 @@
     userControlled = true;
   };
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true; # required by many games & wine as said by grok.
+  };
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
@@ -98,6 +103,31 @@
       openssl
       icu
       curl
+      libGL  
+      libglvnd
+      libX11
+      libXcursor
+      libXrandr
+      libXi
+      libxkbcommon
+      wayland
+      libdrm
+      fontconfig
+      freetype
+      e2fsprogs
+      libxcb
+      gmp
+      libgpg-error
+      harfbuzz
+      fribidi
+      expat
+      gdm
+      gnome-desktop
+      glib
+      gtk3
+      mesa
+      libdrm
+      libglvnd
     ];
   };
 
