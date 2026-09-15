@@ -1,8 +1,8 @@
 hl.monitor({
   output = "",
-  mode = "1366x768",
+  mode = "preferred",
   position = "auto",
-  scale = 1
+  scale = 1.25
 })
 
 local terminal = "kitty"
