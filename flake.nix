@@ -10,10 +10,11 @@
             url = "github:nix-community/home-manager/release-26.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        catppuccin.url = "github:catppuccin/nix/release-26.05";
         self.submodules = true;
     };
 
-    outputs = { self, nixpkgs, waybar, home-manager, ... }: {
+    outputs = { self, nixpkgs, waybar, home-manager, catppuccin, ... }: {
         nixosConfigurations = {
           nixos-btw = nixpkgs.lib.nixosSystem {
               system = "x86_64-linux";
@@ -25,7 +26,12 @@
                       home-manager = {
                           useGlobalPkgs = true;
                           useUserPackages = true;
-                          users.light = import ./home.nix;
+                          users.light = {
+                            imports = [
+                              ./home.nix
+                              catppuccin.homeModules.catppuccin
+                            ];
+                          };
                           backupFileExtension = "backup";
                       };
                   }

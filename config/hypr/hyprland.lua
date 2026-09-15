@@ -6,7 +6,7 @@ hl.monitor({
 })
 
 local terminal = "kitty"
-local file_manager = "thunar"
+local file_manager = "dolphin"
 local menu = "rofi -modi drun,run -show drun"
 
 local wallpaper_dir = "~/Wallpapers"

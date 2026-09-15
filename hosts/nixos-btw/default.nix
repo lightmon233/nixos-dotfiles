@@ -183,6 +183,7 @@
     kdePackages.kio-extras #extra protocols support (sftp, fish and more)
     kdePackages.dolphin # This is the actual dolphin package
     ntfs3g
+    apple-cursor
   ];
 
   services.pipewire = {
@@ -199,6 +200,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    noto-fonts-cjk-sans
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
