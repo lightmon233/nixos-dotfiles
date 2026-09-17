@@ -31,6 +31,22 @@ in
   home.homeDirectory = "/home/light";
 
   services.polkit-gnome.enable = true;
+  systemd.user.services.polkit-gnome = {
+    Unit = {
+      Description = "GNOME PolicyKit Agent";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      Environment = [ "DISPLAY=:0" ];   # 如果是 X11 可以加，Wayland 通常不需要
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
 
   programs.git = {
     enable = true;
