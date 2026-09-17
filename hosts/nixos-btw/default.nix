@@ -40,6 +40,8 @@
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
+  time.hardwareClockInLocalTime = true;
+
   services.xserver.windowManager.dwm = {
     enable = true;
     package = pkgs.dwm.overrideAttrs {
