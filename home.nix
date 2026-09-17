@@ -30,6 +30,8 @@ in
   home.username = "light";
   home.homeDirectory = "/home/light";
 
+  services.polkit-gnome.enable = true;
+
   programs.git = {
     enable = true;
     settings.user = {
