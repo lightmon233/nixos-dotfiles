@@ -7,9 +7,18 @@
       ../../modules/vim.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      device = "nodev";          # UEFI 模式用这个
+      efiSupport = true;
+      useOSProber = true;        # 自动检测 Windows
+    };
+    # 关闭 systemd-boot
+    systemd-boot.enable = false;
+  };
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   services.udisks2.enable = true; # This enables dolphin to see inserted usb disks
@@ -40,7 +49,7 @@
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
-  time.hardwareClockInLocalTime = true;
+  time.hardwareClockInLocalTime = false;
 
   services.xserver.windowManager.dwm = {
     enable = true;
