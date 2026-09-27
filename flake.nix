@@ -37,6 +37,27 @@
                   }
               ];
           };
+	  ThinkPad-W520 = nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = { inherit waybar; };
+              modules = [
+                  ./hosts/ThinkPad-W520
+                  home-manager.nixosModules.home-manager
+                  {
+                      home-manager = {
+                          useGlobalPkgs = true;
+                          useUserPackages = true;
+                          users.light = {
+                            imports = [
+                              ./home.nix
+                              catppuccin.homeModules.catppuccin
+                            ];
+                          };
+                          backupFileExtension = "backup";
+                      };
+                  }
+              ];
+          };
         };
     };
 }
