@@ -21,6 +21,8 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+  boot.kernelModules = [ "kvm-intel" ];
+
   services.udisks2.enable = true; # This enables dolphin to see inserted usb disks
 
   networking.hostName = "ThinkPad-W520"; # Define your hostname.
@@ -97,7 +99,7 @@
 
   users.users.light = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" "kvm" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -197,7 +199,19 @@
     kdePackages.dolphin # This is the actual dolphin package
     ntfs3g
     apple-cursor
+    qemu_kvm
+    OVMFFull
+    virt-manager
+    libvirt
+    spice-gtk
   ];
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+    };
+  };
 
   services.pipewire = {
     enable = true;
