@@ -80,6 +80,12 @@ hl.config({
 })
 
 hl.config({
+  xwayland = {
+    force_zero_scaling = true
+  }
+})
+
+hl.config({
   animations = {
     enabled = true
   },
