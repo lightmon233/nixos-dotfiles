@@ -93,7 +93,16 @@ in
       TerminalApplication=kitty
       TerminalService=kitty.desktop
     '';
+    # 核心修复 1：显示指定 Portal 的全局配置文件，通知 xdg-desktop-portal 使用 gtk 后端
+    "xdg-desktop-portal/portals.conf".text = ''
+      [preferred]
+      default=gtk
+    '';
   };
+
+  # xdg.dataFile = {
+  #   # scripts here will apear under ~/.local/share/
+  # };
 
   home.packages = with pkgs; [
     fastfetch # for fetching system specs
@@ -127,7 +136,56 @@ in
     nwjs
     gnome-clocks
     vlc
+    darkman
+    dconf
+    glib # 提供 gsettings
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk # 关键！Chrome 靠它来获取配色
   ];
+
+# 启用 Darkman 并改用底层 dconf 写入（避免 gsettings schemas 丢失）
+  services.darkman = {
+    enable = true;
+    
+    settings = {
+      lat = 31.23;
+      lng = 121.47;
+      usegeoclue = false;
+    };
+
+    darkModeScripts = {
+      switch-gtk-theme = ''
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
+        # ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        # ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+        ${pkgs.libnotify}/bin/notify-send "Theme" "Switched to Dark Mode"
+      '';
+    };
+
+    lightModeScripts = {
+      switch-gtk-theme = ''
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+        # ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+        # ${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
+        ${pkgs.libnotify}/bin/notify-send "Theme" "Switched to Light Mode"
+      '';
+    };
+  };
+
+  # 1. 必须开启 dconf，否则 gsettings 修改无法通过 dbus 广播
+  dconf.enable = true;
+
+  # 3. 开启 XDG Portal 服务
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    # 强制让 appearance/settings 使用 gtk portal
+    config.common = {
+      default = [ "gtk" ];
+    };
+  };
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -143,6 +201,11 @@ in
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra; # 确保 Adwaita-dark 主题包安装完整
     };
   };
 
