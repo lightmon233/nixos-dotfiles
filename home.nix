@@ -126,6 +126,7 @@ in
     telegram-desktop
     nwjs
     gnome-clocks
+    vlc
   ];
 
   home.pointerCursor = {
