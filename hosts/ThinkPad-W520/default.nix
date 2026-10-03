@@ -38,12 +38,29 @@
 
   hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [
+      intel-vaapi-driver
+    ];
     enable32Bit = true; # required by many games & wine as said by grok.
   };
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      intel-vaapi-driver = prev.intel-vaapi-driver.overrideAttrs (oldAttrs: {
+        src = prev.fetchFromGitHub {
+          owner = "irql-notlessorequal";
+          repo = "intel-vaapi-driver";
+          # 这个 commit 修了 Wayland 相关问题
+          rev = "929e936ec1f451a5daa12b0c7367687b712b8c2c";
+          hash = "sha256-tZ1rZ+4bRxarcFQhP8V2Mfz0sJ5rBgHYLu2ulrQwL+U=";
+        };
+      });
+    })
+  ];
+
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
   };
 
   security.polkit.enable = true;
@@ -95,6 +112,7 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # 让electron/chromium优先用wayland
+    LIBVA_DRIVER_NAME = "i965";
   };
 
   users.users.light = {
@@ -204,6 +222,7 @@
     virt-manager
     libvirt
     spice-gtk
+    libva-utils
   ];
 
   virtualisation.libvirtd = {
@@ -217,6 +236,26 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+  };
+
+  programs.obs-studio = {
+    enable = true;
+
+    # optional Nvidia hardware acceleration
+    # package = (
+    #   pkgs.obs-studio.override {
+    #     cudaSupport = true;
+    #   }
+    # );
+
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi #optional AMD hardware acceleration
+      obs-gstreamer
+      obs-vkcapture
+    ];
   };
 
   environment.etc = {
