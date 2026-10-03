@@ -112,6 +112,8 @@ in
     nodejs # for some of the neovim stuff
     gcc # for compiling some of the neovim tree-sitter
     unzip # for some of the neovim mason-lsp building process
+    unrar
+    p7zip
     tree-sitter # for neovim tree-sitter
     neovim
     lua-language-server
@@ -141,6 +143,7 @@ in
     glib # 提供 gsettings
     xdg-desktop-portal
     xdg-desktop-portal-gtk # 关键！Chrome 靠它来获取配色
+    hugo
   ];
 
 # 启用 Darkman 并改用底层 dconf 写入（避免 gsettings schemas 丢失）
