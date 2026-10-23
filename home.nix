@@ -146,6 +146,7 @@ in
     hugo
     baidupcs-go
     megasync
+    libreoffice
   ];
 
   services.megasync = {
