@@ -68,6 +68,10 @@ nixos-btw = nixpkgs.lib.nixosSystem {
 
 Copy and paste the code above according to the original structure in `flake.nix`, and rename `nixos-btw` to your own hostname.
 
+#### And in your `default.nix`:
+
+Change `networking.hostName` to your wanted hostname.
+
 ### Add new config to the git repository
 
 Under repo's root path:
@@ -78,12 +82,26 @@ git add .
 
 ### Rebuild your configuration
 
+Before rebuild, don't forget to init git submodules:
+
+```bash
+git submodules update --init
+```
+
 ```bash
 sudo nixos-rebuild switch --flake ~/nixos-dotfiles#<your-hostname>
 # change nixos-btw to your machine's hostname.
 ```
 
+#### or install nixos if you are from scratch
+
+```bash
+nixos-install --flake .#<your-hostname>
+```
+
 ### Reboot your computer
+
+If you are from scratch, use `cp` to copy this repo folder to your new system before reboot, just in case.
 
 ```bash
 reboot
