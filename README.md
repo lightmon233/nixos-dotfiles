@@ -85,7 +85,7 @@ git add .
 Before rebuild, don't forget to init git submodules:
 
 ```bash
-git submodules update --init
+git submodule update --init
 ```
 
 ```bash

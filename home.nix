@@ -145,14 +145,9 @@ in
     xdg-desktop-portal-gtk # 关键！Chrome 靠它来获取配色
     hugo
     baidupcs-go
-    megasync
     libreoffice
   ];
 
-  services.megasync = {
-    enable = true;
-    forceWayland = true;
-  };
 # 启用 Darkman 并改用底层 dconf 写入（避免 gsettings schemas 丢失）
   services.darkman = {
     enable = true;
