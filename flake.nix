@@ -58,11 +58,11 @@
                   }
               ];
           };
-          ThinkPad-X250 = nixpkgs.lib.nixosSystem {
+          ThinkPad-X270 = nixpkgs.lib.nixosSystem {
               system = "x86_64-linux";
               specialArgs = { inherit waybar; };
               modules = [
-                  ./hosts/ThinkPad-X250
+                  ./hosts/ThinkPad-X270
                   home-manager.nixosModules.home-manager
                   {
                       home-manager = {

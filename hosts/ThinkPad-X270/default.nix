@@ -25,7 +25,7 @@
 
   services.udisks2.enable = true; # This enables dolphin to see inserted usb disks
 
-  networking.hostName = "ThinkPad-X250"; # Define your hostname.
+  networking.hostName = "ThinkPad-X270"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -81,6 +81,11 @@
   services.displayManager.ly.enable = true;
 
   services.blueman.enable = true;
+
+  # services.v2raya = {
+  #   enable = true;
+  #   cliPackage = pkgs.xray;
+  # };
 
   programs.hyprland = {
     enable = true;
@@ -200,6 +205,7 @@
     libvirt
     spice-gtk
     libva-utils
+    sing-box
   ];
 
   virtualisation.libvirtd = {
