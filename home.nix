@@ -81,6 +81,7 @@ in
     initContent = ''
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       (cat ~/.cache/wal/sequences &)
+      pokemon-colorscripts -r
     '';
   };
 
@@ -146,6 +147,7 @@ in
     hugo
     baidupcs-go
     libreoffice
+    pokemon-colorscripts
   ];
 
 # 启用 Darkman 并改用底层 dconf 写入（避免 gsettings schemas 丢失）
