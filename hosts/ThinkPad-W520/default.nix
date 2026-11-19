@@ -223,6 +223,7 @@
     libvirt
     spice-gtk
     libva-utils
+    remmina
   ];
 
   virtualisation.libvirtd = {
