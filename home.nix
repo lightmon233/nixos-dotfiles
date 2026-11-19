@@ -148,6 +148,7 @@ in
     baidupcs-go
     libreoffice
     pokemon-colorscripts
+    gh
   ];
 
 # 启用 Darkman 并改用底层 dconf 写入（避免 gsettings schemas 丢失）
